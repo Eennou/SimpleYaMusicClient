@@ -1,0 +1,41 @@
+<button class="icon-left menu-show" onclick="toggleMenu()"><ion-icon name="menu"></ion-icon>Меню</button>
+<div class="menu hidden">
+    <div onclick="playlistView.classList.add('hidden'); toggleMenu();">
+        <ion-icon class="playlist-icon" name="play-outline"></ion-icon>Очередь
+        <ion-icon class="arrow-right" name="chevron-forward"></ion-icon>
+        <button class="icon play" onclick="clearQueue();"><ion-icon name="trash"></ion-icon></button>
+    </div>
+    <div onclick="loadPlaylistView('Favorites')">
+        <ion-icon class="playlist-icon" name="heart"></ion-icon>Мне нравится
+        <ion-icon class="arrow-right" name="chevron-forward"></ion-icon>
+        <button class="icon play" onclick="loadPlaylist('Favorites')"><ion-icon name="play"></ion-icon></button>
+    </div>
+</div>
+<div class="lyrics hidden">
+    <div class="background"></div>
+    <div class="lines"></div>
+</div>
+<div class="playlist view hidden">
+</div>
+<div class="playlist order">
+</div>
+<div class="player">
+    <div class="background"></div>
+    <div class="controls">
+        <img class="secondary-cover" src="" />
+        <img class="primary-cover" src="" />
+        <p class="title">Загрузка...</p>
+        <p class="artists"></p>
+        <div>
+            <button class="icon prev-track"><ion-icon name="play-back"></ion-icon></button>
+            <button class="icon pause-track"><ion-icon name="pause"></ion-icon><ion-icon name="play"></ion-icon></button>
+            <button class="icon next-track"><ion-icon name="play-forward"></ion-icon></button>
+            <button class="icon lyrics-track" onclick="toggleLyrics()"><ion-icon name="document-text"></ion-icon></button>
+        </div>
+        <input type="range" class="track-progress" min="0" step="0.005" max="1" value="0" onmousedown="progressChange = true;" onmouseup="progressChange = false;" onchange="soundFile.currentTime = soundFile.duration * this.value">
+        <div class="volume-wrapper">
+            <ion-icon class="volume-icon" name="volume-high"></ion-icon>
+            <input type="range" class="volume-slider" min="0" step="0.01" max="1" value="0.5" oninput="setVolume(this.value)">
+        </div>
+    </div>
+</div>
